@@ -45,6 +45,7 @@ public class TestServiceImpl implements top.mangod.springsentineldemo.service.Te
     @SentinelResource(value = "helloAnother", defaultFallback = "defaultFallback",
         exceptionsToIgnore = {IllegalStateException.class})
     public String helloAnother(String name) {
+        // 可以针对部分异常情况做忽略处理，不再触发熔断降级
         if (name == null || "bad".equals(name)) {
             throw new IllegalArgumentException("oops");
         }

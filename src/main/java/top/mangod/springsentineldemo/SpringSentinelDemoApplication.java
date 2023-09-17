@@ -22,13 +22,14 @@ public class SpringSentinelDemoApplication {
 	public static void main(String[] args) {
 //        System.setProperty("csp.sentinel.config.file", "sentinel.properties");
 
-		initFlowRule(1, false);
+		initSentinelRule();
 		SpringApplication.run(SpringSentinelDemoApplication.class, args);
 	}
 
-	private static void initFlowRule(int interfaceFlowLimit, boolean method) {
+	private static void initSentinelRule() {
+		// 资源限流
 		FlowRule flowRule = new FlowRule("test")
-				.setCount(interfaceFlowLimit)
+				.setCount(1)
 				.setGrade(RuleConstant.FLOW_GRADE_QPS);
 		List<FlowRule> list = new ArrayList<>();
         /*if (method) {
@@ -40,7 +41,7 @@ public class SpringSentinelDemoApplication {
 		list.add(flowRule);
 		FlowRuleManager.loadRules(list);
 
-
+        // 异常降级
         /*List<DegradeRule> DegradeRules = new ArrayList<>();
         DegradeRule degradeRule = new DegradeRule("");
         degradeRule.setGrade(CircuitBreakerStrategy.ERROR_RATIO.getType());
@@ -51,7 +52,7 @@ public class SpringSentinelDemoApplication {
         DegradeRules.add(degradeRule);
         DegradeRuleManager.loadRules(DegradeRules);*/
 
-
+		// 系统负载保护
         /*List<SystemRule> systemRules = new ArrayList<>();
         SystemRule systemRule = new SystemRule();
         systemRule.setHighestSystemLoad(10);
