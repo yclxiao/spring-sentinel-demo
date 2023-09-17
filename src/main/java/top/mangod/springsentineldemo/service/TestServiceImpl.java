@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
 public class TestServiceImpl implements top.mangod.springsentineldemo.service.TestService {
 
     @Override
-    @SentinelResource(value = "test", blockHandler = "handleException", blockHandlerClass = {top.mangod.spingsentineldemo.service.ExceptionUtil.class})
+    @SentinelResource(value = "test", blockHandler = "handleException", blockHandlerClass = {top.mangod.springsentineldemo.service.ExceptionUtil.class})
     public void test() {
         // 默认情况下，超出配置的流控阈值后，直接抛出 FlowException（BlockException） 异常，使用blockHandler自定义
         System.out.println("Test");
