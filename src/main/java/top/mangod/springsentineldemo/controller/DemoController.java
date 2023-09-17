@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.mangod.spingsentineldemo.controller;
+package top.mangod.springsentineldemo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import top.mangod.spingsentineldemo.service.TestService;
+import top.mangod.springsentineldemo.service.TestService;
 
 /**
  * @author Eric Zhao

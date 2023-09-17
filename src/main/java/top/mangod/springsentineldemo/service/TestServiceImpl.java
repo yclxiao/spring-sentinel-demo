@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package top.mangod.spingsentineldemo.service;
+package top.mangod.springsentineldemo.service;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.stereotype.Service;
@@ -22,10 +22,10 @@ import org.springframework.stereotype.Service;
  * @author Eric Zhao
  */
 @Service
-public class TestServiceImpl implements TestService {
+public class TestServiceImpl implements top.mangod.springsentineldemo.service.TestService {
 
     @Override
-    @SentinelResource(value = "test", blockHandler = "handleException", blockHandlerClass = {ExceptionUtil.class})
+    @SentinelResource(value = "test", blockHandler = "handleException", blockHandlerClass = {top.mangod.spingsentineldemo.service.ExceptionUtil.class})
     public void test() {
         // 默认情况下，超出配置的流控阈值后，直接抛出 FlowException（BlockException） 异常，使用blockHandler自定义
         System.out.println("Test");
