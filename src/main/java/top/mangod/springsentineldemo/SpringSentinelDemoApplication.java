@@ -1,6 +1,8 @@
 package top.mangod.springsentineldemo;
 
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
+import com.alibaba.csp.sentinel.slots.block.authority.AuthorityRule;
+import com.alibaba.csp.sentinel.slots.block.authority.AuthorityRuleManager;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
 import org.springframework.boot.SpringApplication;
@@ -9,6 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -59,5 +62,11 @@ public class SpringSentinelDemoApplication {
         systemRules.add(systemRule);
         SystemRuleManager.loadRules(systemRules);*/
 
+		// 黑白名单授权访问
+		/*AuthorityRule rule = new AuthorityRule();
+		rule.setResource("test");
+		rule.setStrategy(RuleConstant.AUTHORITY_WHITE);
+		rule.setLimitApp("appA,appB");
+		AuthorityRuleManager.loadRules(Collections.singletonList(rule));*/
 	}
 }
